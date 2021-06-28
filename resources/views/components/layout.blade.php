@@ -32,10 +32,8 @@
     <p id="auth_links " class="sr-only"> Auth Links </p>
     <nav aria-labelledby="auth_links">
         <ul class="flex items-center space-x-8">
-            @if (auth()->user())
-                <span> Name </span>
-            @endif
             @auth
+                <span> {{auth()->user()->name}} </span>
                 <li>
                     <form action="{{route('logout')}}" method="post">
                         @csrf

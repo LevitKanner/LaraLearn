@@ -23,6 +23,10 @@
                            class="p-3 w-full appearance-none rounded-md border border-gray-200 placeholder-gray-300">
                     @error('password') <p class="text-xs text-red-600"> {{$message}}</p> @enderror
                 </div>
+                <div class="mt-4 flex items-center">
+                    <input type="checkbox" name="remember" id="remember_me">
+                    <label for="remember_me" class="select-none ml-2">Remember me</label>
+                </div>
 
                 <div class="mt-6">
                     <button type="submit" class="p-3 rounded-md w-full bg-green-600 text-white hover:bg-green-700">

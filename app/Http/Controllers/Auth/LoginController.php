@@ -25,7 +25,7 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
-        $authenticated = auth()->attempt($request->only('email', 'password'));
+        $authenticated = auth()->attempt($request->only('email', 'password'), $request->remember);
 
         return $authenticated ? redirect()->route('dashboard') : back()->with('status', 'Invalid Login Credentials');
     }
