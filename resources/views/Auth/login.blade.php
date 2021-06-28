@@ -25,7 +25,7 @@
                 </div>
                 <div class="mt-4 flex items-center">
                     <input type="checkbox" name="remember" id="remember_me">
-                    <label for="remember_me" class="select-none ml-2">Remember me</label>
+                    <label for="remember_me" class="select-none ml-2 font-semibold">Remember me</label>
                 </div>
 
                 <div class="mt-6">

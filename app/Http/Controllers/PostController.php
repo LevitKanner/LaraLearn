@@ -10,27 +10,27 @@ use Illuminate\Support\Facades\DB;
 class PostController extends Controller
 {
     //
-    public function __construct()
-    {
-        $this->middleware(['auth']);
-    }
 
     public function index()
     {
         $post = DB::table('posts')->orderBy('created_at', 'desc')->get();
-        return view('welcome', ["posts" => $post]);
+        return view('posts', ["posts" => $post]);
     }
 
-    public function create(Request $req)
+    public function create()
+    {
+        return view('postForm');
+    }
+
+    public function store(Request $req)
     {
         $validated = $req->validate([
             "title" => "required",
-            "author_name" => "required",
             "content" => "required|min:20"
         ]);
 
         Post::create($validated);
-        return redirect('/')->with('success', "'{$validated['title']}' created successfully");
+        return redirect()->route('posts')->with('success', "'{$validated['title']}' created successfully");
     }
 
     public function show($id)

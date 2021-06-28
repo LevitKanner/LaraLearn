@@ -12,7 +12,7 @@
     <p id="marketing " class="sr-only"> Marketing </p>
     <nav aria-labelledby="marketing">
         <ul class="flex space-x-8">
-            <a href="{{route('home')}}">
+            <a href="{{route('posts')}}">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-16" viewBox="0 0 76 19" fill="none">
                     <title>Dribbble: the community for graphic design</title>
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -21,7 +21,7 @@
                 </svg>
             </a>
             @auth
-                <li> Logo</li>
+                <li> <a href="{{route('posts')}}">Posts</a></li>
                 <li> Inspiration</li>
                 <li> Find Work</li>
                 <li> Learn Design</li>
@@ -50,9 +50,9 @@
                         Sign In </a>
                 </li>
                 <li>
-                    <button href="{{route('register')}}" class="bg-pink-600 text-pink-50 px-3 py-2 rounded-md">
+                    <a href="{{route('register')}}" class="inline-block bg-pink-600 text-pink-50 px-3 py-2 rounded-md">
                         Sign Up
-                    </button>
+                    </a>
                 </li>
             @endguest
         </ul>

@@ -18,11 +18,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PostController::class, 'index'])->name('home');
+Route::get('/', [PostController::class, 'index'])->name('posts');
 Route::get('/details/{id}', [PostController::class, 'show'])->name('details');
 
-Route::get('/form', fn() => view("postForm"))->name('showForm');
-Route::post('/createPost', [PostController::class, "create"])->name('createPost');
+Route::get('/createPost', [PostController::class, "create"])->name('createPost');
+Route::post('/createPost', [PostController::class, "store"]);
 
 Route::get('/register', [RegisterController::class, "index"])->name('register');
 Route::post('/register', [RegisterController::class, "store"]);
