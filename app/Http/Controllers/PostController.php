@@ -13,8 +13,8 @@ class PostController extends Controller
 
     public function index()
     {
-        $post = DB::table('posts')->orderBy('created_at', 'desc')->get();
-        return view('posts', ["posts" => $post]);
+        $posts = Post::paginate(10);
+        return view('posts', ["posts" => $posts]);
     }
 
     public function create()
@@ -24,12 +24,17 @@ class PostController extends Controller
 
     public function store(Request $req)
     {
+
         $validated = $req->validate([
             "title" => "required",
             "content" => "required|min:20"
         ]);
 
-        Post::create($validated);
+        $req->user()->posts()->create([
+            'title' => $req->input('title'),
+            'content' => $req->input('content')
+        ]);
+
         return redirect()->route('posts')->with('success', "'{$validated['title']}' created successfully");
     }
 
