@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,3 +34,5 @@ Route::post('/login', [LoginController::class, "login"]);
 Route::post('/logout', [LogoutController::class, "index"])->name('logout');
 
 Route::get('/dashboard', [DashboardController::class, "index"])->name('dashboard');
+
+Route::post('/post/{post}/likes', [LikeController::class, "index"])->name('post.like');
