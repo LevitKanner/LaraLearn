@@ -10,8 +10,9 @@
                         <button type="submit" class="text-blue-500">Like</button>
                     </form>
                 @else
-                    <form method="post" action="">
+                    <form method="post" action="{{route('post.unlike', $post)}}">
                         @csrf
+                        @method('delete')
                         <button type="submit" class="text-blue-500">Unlike</button>
                     </form>
                 @endif

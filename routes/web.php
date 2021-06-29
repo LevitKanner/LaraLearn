@@ -36,3 +36,4 @@ Route::post('/logout', [LogoutController::class, "index"])->name('logout');
 Route::get('/dashboard', [DashboardController::class, "index"])->name('dashboard');
 
 Route::post('/post/{post}/likes', [LikeController::class, "index"])->name('post.like');
+Route::delete('/post/{post}/unlike', [LikeController::class, "destroy"])->name('post.unlike');
