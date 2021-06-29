@@ -13,7 +13,7 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Post::with('user','likes')->paginate(10);
+        $posts = Post::with('user', 'likes')->paginate(10);
         return view('posts', ["posts" => $posts]);
     }
 
@@ -42,5 +42,12 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         return view('details', ["post" => $post]);
+    }
+
+    public function destroy(Post $post, Request $request)
+    {
+        $belongs = $post->createdby($request->user());
+        if ($belongs) $post->delete();
+        return redirect()->route('posts');
     }
 }

@@ -24,4 +24,8 @@ class Post extends Model
     public function likedby(User $user) {
         return $this->likes->contains('user_id', $user->id);
     }
+
+    public function createdby(User $user) {
+        return $this->user->id === $user->id;
+    }
 }
