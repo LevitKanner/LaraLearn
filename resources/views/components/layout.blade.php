@@ -21,7 +21,7 @@
                 </svg>
             </a>
             @auth
-                <li> <a href="{{route('posts')}}">Posts</a></li>
+                <li class="hover:text-pink-600"> <a href="{{route('posts')}}">Posts</a></li>
                 <li> Inspiration</li>
                 <li> Find Work</li>
                 <li> Learn Design</li>
@@ -45,7 +45,7 @@
             @endauth
 
             @guest
-                <li>
+                <li class="hover:text-pink-600">
                     <a href="{{route('login')}}" class="hover:text-pink-500 transition-colors ease-in-out duration-200">
                         Sign In </a>
                 </li>

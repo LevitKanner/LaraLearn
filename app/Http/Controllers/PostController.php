@@ -55,6 +55,6 @@ class PostController extends Controller
     public function list(User $user)
     {
         $posts = $user->posts()->with('user', 'likes')->paginate(10);
-        dd($posts);
+        return view('posts.user.posts', ['user' => $user, 'posts' => $posts]);
     }
 }
