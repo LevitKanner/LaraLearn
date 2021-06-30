@@ -5,7 +5,7 @@
             <p class="block text-xs font-bold text-gray-400"> {{$post->likes->count() . Str::plural(' like', $post->likes->count())}}</p>
 
             @auth
-                @if($post->createdby(auth()->user()))
+                @can('delete', $post)
                     <div>
                         <form method="post" action="{{route('posts.delete', $post)}}">
                             @csrf
@@ -13,7 +13,7 @@
                             <button type="submit" class="text-blue-500">Delete</button>
                         </form>
                     </div>
-                @endif
+                @endcan
 
                 @if(!$post->likedBy(auth()->user()))
                     <form method="post" action="{{route('post.like', $post)}}">

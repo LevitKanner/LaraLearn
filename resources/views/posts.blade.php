@@ -8,7 +8,7 @@
                     <a href="{{route('details', $post->id)}}">
                         <div class="m-3 bg-gray-100 p-3 rounded-md">
                             <h2 class="font-bold"> {{$post->title}}</h2>
-                            <span class="text-xs mr-2">{{$post->user->name}}</span>
+                            <a href="{{route('user.posts', $post->user)}}" class="text-xs mr-2 hover:text-pink-600">{{$post->user->name}}</a>
                             <span class="text-xs"> {{$post->created_at->diffForHumans()}}</span>
                             <p class="font-semibold text-sm">{{$post->content}}</p>
                         </div>
